@@ -1,0 +1,237 @@
+
+1.Креиран е мојот профил : Viktor28az
+
+2.На веб страната на Git ја променив main гранката во master
+
+3.Најпрвин одиме на веб git таму креирам репо именувано SI_2024_lab1_223040.git го ставаме да биде privete и следно одиме на теминал каде го клонираме репозиториумот
+ git clone https://github.com/Viktor28az/SI_2024_lab1_223040.git
+
+
+4.со командата cd влегуваме таму
+cd SI_2024_lab1_223040
+следниот чекот е да го инциализираме 
+HP@AHT595830314435 MINGW64 ~/SI_2024_lab1_223040 (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/HP/SI_2024_lab1_223040/.git/
+во овој чекот ми е даден патеката каде локално ми се чува репото 
+
+5.git branch -m master
+-m e опција за преименување на гранка.
+
+6.Додадавање на дадотека со содржина со комнадата echo :
+$ echo "#Viktor, Azhievski, 223040" > README.md
+Во овој чекор се бара и да се напише пораката:
+$ git commit -m "Initial commit"
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+7.симнувањето и префрлувањето не го направив преку prompt туку рачно со префрлања од downloads на фајлот каде ми е проектот.
+Следно во овој 7ми чекор истите треба да ги додадам на stage и вака изгледа пред да ги додам
+
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+        SILab1Main.java
+        SILab1_1.java
+        SILab1_2.java
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+ ќе ги додадам 
+$ git add SILab1Main.java SILab1_1.java SILab1_2.java
+
+
+изгледот откако се додадени:
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   SILab1Main.java
+        new file:   SILab1_1.java
+        new file:   SILab1_2.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+За крај во овој чекор треба да додадеме пораката 
+git commit -m " Add starter code."
+
+
+
+
+9.
+Првин од мастер ја креираме гранаката bug 1
+$ git branch -m bug1
+Следно се враќаме на гранакта мастер за да ја крериаме другата гранка bug2
+$ git checkout -b master
+$ git branch -m bug2
+повторно се враќаме со командата
+Вака изгледа моменталниот број на гранки и моментално се наоѓаме на мастер
+$ git branch
+  bug1
+  bug2
+* master
+
+8.Во оваа фаза ги поправаме грашките 
+Локално ги поправам грешките кај SIlab1_1
+ if (el.length() % 2 == 0) го правам во
+ if (el.length() % 2 == 0) 
+
+Локално ги поправам грешките кај SIlab1_2
+  if (el.length() < minLength) 
+  if (el.length() >= minLength) 
+
+
+
+10.git chekcout bug1
+
+11.$ git commit -am " Fix wrong condition in filterOddLengthStrings."
+
+12.git checkout bug2
+
+13.$ git commit -am "Fix wrong condition in makeBigStringFrom."
+$ git commit -am "Fix wrong condition in makeBigStringFrom."
+On branch bug2
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+14.$ git checkout bug1
+
+15.локално правам додавање на 16та линија код.
+Направете commit со порака Call method filterOddLengthStrings in main class.
+
+$ git commit -m "Call method filterOddLengthStrings in main class."
+On branch bug1
+Your branch is based on 'origin/master', but the upstream is gone.
+  (use "git branch --unset-upstream" to fixup)
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   SILab1Main.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+16.git chekout bug2
+
+
+17.Сега во истиата линија код додаваме различен текстс
+$ git commit -m "Call method filterOddLengthStrings in main class."
+On branch bug2
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   SILab1Main.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+18.Синхоронизација
+$ git push origin --all
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (9/9), done.
+Writing objects: 100% (9/9), 1.18 KiB | 1.18 MiB/s, done.
+Total 9 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), done.
+To https://github.com/Viktor28az/SI_2024_lab1_223040.git
+ * [new branch]      bug1 -> bug1
+ * [new branch]      bug2 -> bug2
+ * [new branch]      master -> master
+
+$ git push -u origin --all
+Everything up-to-date
+branch 'bug1' set up to track 'origin/bug1'.
+branch 'bug2' set up to track 'origin/bug2'.
+branch 'master' set up to track 'origin/master'.
+
+
+19.git checkout master
+
+
+20.//Јавува конфликт дека во иста линија од кодот на ист документ во двете гранки bug1 и bug2 се запишува различна содржина, Fast and Forward ќе се изврши
+
+Не јавува конфликт
+HP@AHT595830314435 MINGW64 ~/SI_2024_lab1_223040 (master)
+$ git merge bug1
+Updating 638cdad..2fe8635
+Fast-forward
+ SILab1_1.java | 2 +-
+ SILab1_2.java | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+
+
+$ git push origin master
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 416 bytes | 416.00 KiB/s, done.
+Total 3 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), completed with 1 local object.
+To https://github.com/Viktor28az/SI_2024_lab1_223040.git
+   638cdad..2b2797e  master -> master
+
+
+
+21.Синхронизацијата ќе ја направиме со merge порка
+ git commit -am "merge bug1 into master"
+
+22.git checkout bug2
+
+23.$ git rebase master
+Successfully rebased and updated refs/heads/bug2.
+$ git rebase --continue
+
+24.$ git checkout  master
+
+25./26./27
+$ git commit -am "merge bug2 into master"
+On branch master
+Your branch is up to date with 'origin/master'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.md
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+28.echo "previous git logs" >  logs.txt
+$ git add logs.txt
+
+
+
+
